@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html><html lang=ru><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1">
+<title>ГАР - Республика Мордовия</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f2f5;color:#1a1a2e}
+.hdr{background:linear-gradient(135deg,#1a3a6b,#2c5aa0);border-bottom:4px solid #c4122f;padding:14px 24px;display:flex;align-items:center;gap:14px}
+.fl{display:flex;flex-direction:column;width:6px;height:32px;border-radius:2px;overflow:hidden}
+.fl div{flex:1}.fw{background:#fff}.fb{background:#0039a6}.fr{background:#d52b1e}
+.hdr h1{color:#fff;font-size:1.2em}.hdr p{color:rgba(255,255,255,.6);font-size:.78em;margin-top:2px}
+.c{padding:16px 24px}
+.card{background:#fff;border-radius:8px;padding:20px;margin-bottom:14px;border:1px solid #d4d9e0;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.card h2{color:#1a3a6b;font-size:1em;margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid #e8ecf1;display:flex;align-items:center;gap:8px}
+.card h2::before{content:'';width:4px;height:16px;background:#c4122f;border-radius:2px;display:inline-block}
+.tabs{display:flex;border:1px solid #d4d9e0;border-radius:6px;overflow:hidden;margin-bottom:16px}
+.tab{flex:1;padding:10px;text-align:center;cursor:pointer;font-weight:600;font-size:.85em;background:#f8f9fb;color:#5a6677;border-right:1px solid #d4d9e0}
+.tab:last-child{border-right:none}.tab:hover{background:#e8ecf1}.tab.on{background:#1a3a6b;color:#fff}
+.row{display:flex;gap:8px;margin-bottom:10px}
+.row input{flex:1;padding:10px 12px;border:1px solid #c4cad4;border-radius:6px;font-size:.88em;outline:none}
+.row input:focus{border-color:#2c5aa0}
+.btn{padding:10px 18px;border:none;border-radius:6px;font-weight:600;cursor:pointer;font-size:.85em}
+.btn:hover{opacity:.85}.bp{background:#1a3a6b;color:#fff}.bg{background:#2e7d32;color:#fff}
+.bsm{padding:7px 14px;font-size:.8em}
+.res{background:#f8f9fb;border-radius:6px;padding:14px;margin-top:14px;display:none;border:1px solid #d4d9e0;max-height:400px;overflow-y:auto}
+.res.v{display:block}
+.hi{padding:8px 12px;background:#f8f9fb;border:1px solid #e8ecf1;border-radius:6px;margin-bottom:4px;cursor:pointer;font-size:.85em}
+.hi:hover{background:#e8ecf1}
+.kv{color:#c4122f;font-weight:600}.gv{color:#1a3a6b;font-weight:600}
+.er{color:#c4122f}.ld{color:#5a6677;font-style:italic}
+table.det{width:100%;border-collapse:collapse;font-size:.82em}
+table.det td,table.det th{padding:6px 10px;text-align:left;border-bottom:1px solid #e8ecf1}
+.bg-g{padding:2px 6px;border-radius:3px;font-size:.72em;background:#e3edf7;color:#1a3a6b;font-weight:600}
+.bg-k{padding:2px 6px;border-radius:3px;font-size:.72em;background:#fce4ec;color:#c4122f;font-weight:600}
+.toolbar{display:flex;gap:8px;margin-bottom:10px;align-items:center;flex-wrap:wrap}
+.toolbar input{padding:7px 12px;border:1px solid #c4cad4;border-radius:6px;font-size:.82em;outline:none;min-width:220px}
+.cnt{color:#5a6677;font-size:.82em;margin-left:auto}
+.status{color:#2c5aa0;font-size:.85em;font-weight:600;margin-bottom:8px}
+.wrap{overflow:auto;border:1px solid #d4d9e0;border-radius:6px;max-height:72vh}
+.wrap table{width:100%;border-collapse:collapse;font-size:.75em;min-width:1400px}
+.wrap td,.wrap th{padding:4px 7px;text-align:left;border-bottom:1px solid #eee;white-space:nowrap}
+.wrap th{background:#f0f2f5;color:#5a6677;font-weight:600;position:sticky;top:0;z-index:1}
+.wrap tr:hover td{background:#f0f4ff}
+.wrap td.kl{color:#c4122f;font-weight:600;font-size:.8em}
+.wrap td.gu{color:#5a6677;font-size:.68em;font-family:monospace}
+.sel{display:flex;gap:6px;flex-wrap:wrap}
+.sel label{font-size:.8em;color:#5a6677;display:flex;align-items:center;gap:4px}
+.sel input[type=checkbox]{accent-color:#1a3a6b}
+footer{background:#1a3a6b;padding:12px;text-align:center;color:rgba(255,255,255,.5);font-size:.73em;margin-top:16px}
+footer a{color:rgba(255,255,255,.7)}
+</style></head><body>
+<div class=hdr>
+<div class=fl><div class=fw></div><div class=fb></div><div class=fr></div></div>
+<div><h1>Государственный адресный реестр - Республика Мордовия</h1>
+<p>Конвертер ГАР/КЛАДР | ФНС России | fias.nalog.ru | Регион 13</p></div>
+</div>
+<div class=c>
+<div class=card>
+<div class=tabs>
+<div class="tab on" onclick=st(0)>ГАР -> КЛАДР</div>
+<div class="tab" onclick=st(1)>КЛАДР -> ГАР</div>
+<div class="tab" onclick=st(2)>Поиск</div>
+</div>
+<div id=p0><div class=row><input id=gi placeholder="ID, GUID или адрес" onkeydown="if(event.key==='Enter')g2k()"><button class="btn bp" onclick=g2k()>Найти КЛАДР</button></div></div>
+<div id=p1 style=display:none><div class=row><input id=ki placeholder="Код КЛАДР" onkeydown="if(event.key==='Enter')k2g()"><button class="btn bp" onclick=k2g()>Найти ГАР</button></div></div>
+<div id=p2 style=display:none><div class=row><input id=si placeholder="Саранск, Ленина..." oninput=dh() onkeydown="if(event.key==='Enter')ds()"><button class="btn bg" onclick=ds()>Найти</button></div><div id=hints></div></div>
+<div id=res class=res></div>
+</div>
+<div class=card>
+<h2>Реестр адресных объектов Республики Мордовия</h2>
+<div id=stx class=status>Загрузка данных...</div>
+<div class=toolbar>
+<button class="btn bg bsm" onclick=csvE()>Экспорт CSV</button>
+<input id=tf placeholder="Фильтр..." oninput=filterT()>
+<div class=sel>
+<label><input type=checkbox value=3 onchange=filterT() class=lf checked>Районы</label>
+<label><input type=checkbox value=4 onchange=filterT() class=lf checked>Поселения</label>
+<label><input type=checkbox value=6 onchange=filterT() class=lf checked>Нас.пункты</label>
+<label><input type=checkbox value=8 onchange=filterT() class=lf checked>Улицы</label>
+</div>
+<span class=cnt id=tc></span>
+</div>
+<div class=wrap id=bt></div>
+</div>
+</div>
+<footer>ФНС России | ФИАС | <a href="https://fias.nalog.ru" target=_blank>fias.nalog.ru</a> | СПАС v2.0</footer>
+<script>
+let tab=0,ht=null,D=[],lastN=0;
+function st(t){tab=t;document.querySelectorAll('.tab').forEach((e,i)=>e.classList.toggle('on',i===t));
+for(let i=0;i<3;i++)document.getElementById('p'+i).style.display=i===t?'':'none';
+document.getElementById('res').classList.remove('v');document.getElementById('hints').innerHTML=''}
+function sr(h){let r=document.getElementById('res');r.innerHTML=h;r.classList.add('v')}
+function sl(){sr('<p class=ld>Запрос...</p>')}
+function R(k,v){return'<tr><td style="color:#5a6677;width:150px">'+k+'</td><td>'+(v||'-')+'</td></tr>'}
+function showD(d){
+let h='<table class=det>';
+h+='<tr><th colspan=2><span class=bg-g>ГАР</span></th></tr>';
+h+=R('ID','<b class=gv>'+d.gar?.object_id+'</b>');
+h+=R('GUID','<span class=gv style=font-size:.82em>'+d.gar?.object_guid+'</span>');
+h+=R('Адрес',d.gar?.full_name);h+=R('Уровень',d.gar?.level);h+=R('Регион',d.gar?.region_code);
+h+='<tr><th colspan=2><span class=bg-k>КЛАДР</span></th></tr>';
+h+=R('Код','<b class=kv>'+(d.kladr?.kladr_code||'')+'</b>');
+h+=R('Индекс',d.kladr?.postal_code);h+=R('ОКАТО',d.kladr?.okato);h+=R('ОКТМО',d.kladr?.oktmo);
+h+=R('ИФНС ФЛ',d.kladr?.ifns_fl);h+=R('ИФНС ЮЛ',d.kladr?.ifns_ul);
+if(d.hierarchy?.length){h+='<tr><th colspan=2>Иерархия</th></tr>';
+d.hierarchy.forEach(x=>{h+=R(x.type||'',x.name+(x.kladr_code?' <span class=kv>['+x.kladr_code+']</span>':''))})}
+h+='</table>';sr(h)}
+async function g2k(){let v=document.getElementById('gi').value.trim();if(!v)return;sl();
+try{let d=await(await fetch('/api/g2k?q='+encodeURIComponent(v))).json();if(d.error){sr('<p class=er>'+d.error+'</p>');return}showD(d)}catch(e){sr('<p class=er>'+e+'</p>')}}
+async function k2g(){let v=document.getElementById('ki').value.trim();if(!v)return;sl();
+try{let d=await(await fetch('/api/k2g?code='+encodeURIComponent(v))).json();if(d.error){sr('<p class=er>'+d.error+'</p>');return}showD(d)}catch(e){sr('<p class=er>'+e+'</p>')}}
+function dh(){clearTimeout(ht);let v=document.getElementById('si').value.trim();
+if(v.length<3){document.getElementById('hints').innerHTML='';return}
+ht=setTimeout(async()=>{try{let d=await(await fetch('/api/hint?q='+encodeURIComponent(v))).json();
+let h='';(d.hints||[]).forEach(x=>{h+='<div class=hi onclick=cH('+x.object_id+')><b>'+x.object_id+'</b> - '+(x.full_name||'')+'</div>'});
+document.getElementById('hints').innerHTML=h}catch(e){}},300)}
+async function cH(id){document.getElementById('hints').innerHTML='';sl();
+try{let d=await(await fetch('/api/g2k?q='+id)).json();if(d.error){sr('<p class=er>'+d.error+'</p>');return}showD(d)}catch(e){sr('<p class=er>'+e+'</p>')}}
+async function ds(){let v=document.getElementById('si').value.trim();if(!v)return;sl();
+try{let d=await(await fetch('/api/search?q='+encodeURIComponent(v))).json();let a=d.hints||[];
+let h='<table class=det><tr><th>ID</th><th>Адрес</th></tr>';
+a.forEach(x=>{h+='<tr><td><a href=# onclick="cH('+x.object_id+');return false" style=color:#2c5aa0>'+x.object_id+'</a></td><td>'+x.full_name+'</td></tr>'});
+sr(h+'</table>')}catch(e){sr('<p class=er>'+e+'</p>')}}
+
+function getF(){let s=new Set();document.querySelectorAll('.lf').forEach(x=>{if(x.checked)s.add(parseInt(x.value))});return s}
+function renderT(data){
+let h='<table><tr><th>N</th><th>ID</th><th>GUID</th><th>Тип</th><th>Район</th><th>Город/Пос.</th><th>Нас.пункт</th><th>Улица</th><th>КЛАДР</th><th>ОКАТО</th><th>ОКТМО</th><th>Индекс</th><th>ИФНС</th></tr>';
+data.forEach((r,i)=>{h+='<tr><td>'+(i+1)+'</td><td>'+r.id+'</td><td class=gu>'+r.guid+'</td><td>'+r.type+'</td><td>'+r.rayon+'</td><td>'+r.city+'</td><td>'+r.np+'</td><td>'+r.street+'</td><td class=kl>'+r.kladr+'</td><td>'+r.okato+'</td><td>'+r.oktmo+'</td><td>'+r.postal+'</td><td>'+r.ifns+'</td></tr>'});
+document.getElementById('bt').innerHTML=h+'</table>';
+document.getElementById('tc').textContent=data.length+' записей'}
+
+function applyFilter(){
+let f=document.getElementById('tf').value.toLowerCase();let lv=getF();
+let fd=D.filter(r=>{if(!lv.has(r.level))return false;if(!f)return true;
+return(r.rayon+r.city+r.np+r.street+r.kladr+r.guid).toLowerCase().includes(f)});renderT(fd)}
+function filterT(){applyFilter()}
+
+async function poll(){
+try{
+let s=await(await fetch('/api/status')).json();
+document.getElementById('stx').textContent=s.msg;
+if(s.n!==lastN){lastN=s.n;
+let d=await(await fetch('/api/data')).json();
+D=d;applyFilter()}
+if(!s.done){setTimeout(poll,2000)}
+}catch(e){setTimeout(poll,3000)}}
+poll();
+
+async function csvE(){try{let r=await fetch('/api/csv');let b=await r.blob();
+let a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='mordovia.csv';a.click()}catch(e){alert(e)}}
+</script></body></html>
